@@ -1,0 +1,30 @@
+
+# -*- coding: utf-8 -*-
+"""
+This is written in Spyder Editor.
+
+This is a simple text search script.
+
+This script will search for the first use of a target word in an xlsx and return
+the cell number of the word.
+
+@author: nick
+"""
+
+import xlswings as xw
+
+bookName = r'DirectoryPath\Filename.xlsx' #Enter file path and name of workbook
+
+sheetName = 'Sheet1'
+
+wb = xw.Book(bookName)
+
+sht = wb.sheets[sheetName]
+
+myCell = wb.sheets[sheetName].api.UsedRange.Find('Index')
+
+print('---------------')
+
+print(myCell.address) #Returns the cell of the first use of the target word
+
+input()
