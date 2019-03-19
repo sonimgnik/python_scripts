@@ -1,0 +1,74 @@
+# -*- coding: utf-8 -*-
+"""
+This is written in Spyder Editor.
+
+This script grabs files in a directory from multiple folders and plceas them in 
+a new directory.
+
+To use this script you must enter the directory path names in RootDir1 
+and TargetFolder1:3.  You can add additional folders and file types.
+You must also ensure the correct file extension.
+
+This is a temporary script file.
+"""
+
+import os
+import shutil
+
+RootDir1 = r'DirectoryPath' #Enter your Dir Path
+
+###############################################################################
+
+TargetFolder1 = r'DirectoryPath' #Enter your Dir Path
+
+print("looking for .xls files.")
+
+for root, dirs, files in os.walk((os.path.normpath(RootDir1)), topdown=False):
+    for name in files:
+        if name.endswith('.xls'):
+            SourceFolder = os.path.join(root,name)
+            shutil.copy2(SourceFolder, TargetFolder1) #copies .xls to new folder
+            
+print(len([iq for iq in os.scandir(TargetFolder1)]), "files found.") #return count of files in folder
+
+###############################################################################
+
+TargetFolder2 = r'DirectoryPath' #Enter your Dir Path
+
+print("looking for .xlsx files.")
+
+for root, dirs, files in os.walk((os.path.normpath(RootDir1)), topdown=False):
+    for name in files:
+        if name.endswith('.xlsx'):
+            SourceFolder = os.path.join(root,name)
+            shutil.copy2(SourceFolder, TargetFolder2) #copies .xlsx to new folder
+            
+print(len([iq for iq in os.scandir(TargetFolder2)]), "files found.") #return count of files in folder
+
+###############################################################################
+
+TargetFolder3 = r'DirectoryPath' #Enter your Dir Path
+
+print("looking for .txt files.")
+
+for root, dirs, files in os.walk((os.path.normpath(RootDir1)), topdown=False):
+    for name in files:
+        if name.endswith('.txt'):
+            SourceFolder = os.path.join(root,name)
+            shutil.copy2(SourceFolder, TargetFolder3) #copies .txt to new folder
+            
+print(len([iq for iq in os.scandir(TargetFolder3)]), "files found.") #return count of files in folder
+
+###############################################################################
+
+TargetFolder4 = r'DirectoryPath' #Enter your Dir Path
+
+print("looking for .xml files.")
+
+for root, dirs, files in os.walk((os.path.normpath(RootDir1)), topdown=False):
+    for name in files:
+        if name.endswith('.xml'):
+            SourceFolder = os.path.join(root,name)
+            shutil.copy2(SourceFolder, TargetFolder4) #copies .xml to new folder
+            
+print(len([iq for iq in os.scandir(TargetFolder4)]), "files found.") #return count of files in folder
